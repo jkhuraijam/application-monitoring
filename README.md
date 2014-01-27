@@ -7,7 +7,7 @@ slides for application-monitoring using reveal.js, The HTML Presentation Framewo
 Steps
 
 1. Install <a href="http://nodejs.org">Node.js</a> 
-2. Install Grunt
+2. Install <a href="http://gruntjs.com">Grunt</a>
 3. git clone https://github.com/jkhuraijam/application-monitoring.git
 4. cd application-monitoring 
 5. npm install
