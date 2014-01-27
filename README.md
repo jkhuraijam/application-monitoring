@@ -1,4 +1,4 @@
-sides for application-monitoring presentation
+presentation sides for application-monitoring 
 =================
 
 slides for application-monitoring using reveal.js, The HTML Presentation Framework 
@@ -13,5 +13,5 @@ Steps
 5. npm install
 6. grunt live
 7. Open http://localhost:8000 to view your presentation
-8. You can change the port by using grunt serve --port 8001.
+8. You can change the port by using grunt live --port 8001.
 9. prepare your slides in index.html and to learn more options see https://github.com/hakimel/reveal.js/blob/master/README.md
