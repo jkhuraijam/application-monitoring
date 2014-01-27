@@ -1,8 +1,7 @@
 presentation sides for application-monitoring 
 =================
 
-slides for application-monitoring using reveal.js, The HTML Presentation Framework 
-[http://lab.hakim.se/reveal-js/] with livereload option.
+slides for application-monitoring using <a href="http://lab.hakim.se/reveal-js/">reveal.js </a>, The HTML Presentation Framework with livereload option for easy editing.
 
 Steps
 
