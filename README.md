@@ -1,4 +1,4 @@
-reveal-livereload
+application-monitoring
 =================
 
-extension of reveal.js with livereload
+slides for application-monitoring using reveal.js with livereload
