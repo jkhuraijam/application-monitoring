@@ -7,7 +7,7 @@ Steps
 
 1. Install <a href="http://nodejs.org">Node.js</a> 
 2. Install <a href="http://gruntjs.com">Grunt</a>
-3. git clone https://github.com/jkhuraijam/application-monitoring.git
+3. git clone https://github.roving.com/jkhuraijam/application-monitoring.git
 4. cd application-monitoring 
 5. npm install
 6. grunt live

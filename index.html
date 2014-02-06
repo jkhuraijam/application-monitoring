@@ -37,12 +37,14 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Measure Anything, Measure Everything.</h1>
-					<p>
-						<small>Created&nbsp; &nbsp;  by&nbsp; &nbsp;  Erik Dasque&nbsp;&nbsp;&&nbsp; &nbsp;Johnson Khuraijam</small>
+						<h2>Measure Anything, Measure Everything.</h2>
+						<p>using statsd + graphite.</p>
+						<img src="images/demo.png">
+						<p>
+						<small> Created&nbsp; &nbsp;  by&nbsp; &nbsp;  Erik Dasque&nbsp;&nbsp;&&nbsp; &nbsp;Johnson Khuraijam </small>
 					</p>
 				</section>
-			           <section>
+				<section>
                 Introduced to the concept at Monktoberfest Etsy presentation <a href="http://codeascraft.com/2011/02/15/measure-anything-measure-everything/">http://codeascraft.com/2011/02/15/measure-anything-measure-everything/"</a>
                 <br>
                 <blockquote>“If it moves, we track it. Sometimes we’ll draw a graph of something that isn’t moving yet, just in case it decides to make a run for it.”</blockquote>
@@ -96,39 +98,22 @@
                     <h3>But Why?</h3>
                     <h4>Causality: the relationship between cause & effect</h4>
                     <ul>
-                        <li class="fragment">Issues are likely to show up in application level monitoring before they escalate and compound other isssues to cause an application or site wide problem</li>
-                        <li class="fragment">
+                        <li >Issues are likely to show up in application level monitoring before they escalate and compound other isssues to cause an application or site wide problem</li>
+                        <li >
                             Being aware of a timer slow creep over a period of time allows a developer to correct a problem that didn't exist at launch and hasn't really materialized yet at the Network/System/Machine level but will eventually</li>
-                        <li class="fragment">
+                        <li >
                             Noticing an anomaly in a counter, timer or gauge (throughput) will often lead to fixing an issue that might only show up in a logs and stay under the radar but degrades user or system experience, compounding other issues</li>
                         </li>
                     </ul>
                 </section>
-                                <section>
-                    <h3>But Why?</h3>
-                    <h4>Causality: the relationship between cause & effect</h4>
-                    <ul>
-                        <li class="fragment">
-                            Allows a developer or QE to observe middle tier behavior as an application is being performance or stress tested</li>
-                        <li class="fragment">
-                            It's difficult for developers & QE to interpret system & network level graphs on New Relic and distinguish signal from noise on Splunk but application level metrics should make sense and become familiar
-                        </li>
-                    </ul>
-                </section>
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
+                   
 				</section>
 
 
 
 				<!-- Example of nested vertical slides -->
 				<section>
-					<section>
-						<h2>Measuring Applications</h2>
-						<p>using statsd + graphite.</p>
-						<img src="images/demo.png">
-					</section>
+					
 					<section>
 						<h2>Statsd</h2>
 						<ul>
@@ -147,9 +132,9 @@
 						<ul>
 							<li>One of the new apps in CI/CD model, adopting new changes are easier.</li>
 							<li>LOCAL: ClamAV, anti-virus scanner & NAS (NetApps Filer).</li>
-							<li>INTERNAL: Shared services such as
+							<li>INTERNAL: Shared services
 								<ul>
-								<li>System: RovingDB,Memcached & Camel routing bus.</li>
+								<li>System: RovingDB,Memcached & Camel.</li>
 								<li>Apps: Productsvc,ComplianceAPI.</li>
 								</ul>
 							</li>
@@ -158,52 +143,50 @@
 								<li>Facebook, Instagram, Aviary & Bigstock.</li>
 							</ul>
 							</li>
-							<li>Used by 100% of our customers (Trialers & Paid).</li>
+							<li>VISIBILITY: Used by 100% of our customers (Trialers & Paid).</li>
+							<li>FEATURE USAGE MERTICS: New features rollout. e.g.Bigstock.</li>
 						</ul>
-						<p align="left">Having a single interface to monitor for any failure at any of these INTEGRATION endpoints makes total sense.</p>
 					</section>
 					<section>
-						<h2>COMMON JAR for java projects</h2>
+						<h2>statsd client</h2>
 						<ul>
-							<li>created common statsd jar under <a href="https://github.roving.com/ES/nodep">https://github.roving.com/ES/nodep</a>.<br>
+							<li>JAVA: Created common statsd client module jar under <a href="https://github.roving.com/ES/nodep">https://github.roving.com/ES/nodep</a>.<br>
 								<img src="images/ES_nodep_statsd.png"></li>
 							<li>This jar also contains the mbean, for enabling and disabling statsd through <a href="https://wiki.roving.com/display/ProdDel/MLSVC+JMX+Links#MLSVCJMXLinks-2.TodisableorenablestatsdfeatureinMLSVC">JMX interface </a>.</li>
+							<li>Ruby,Python,.NET, etc. clients info in Etsy statsd website.</li>
 						</ul>
-					</section>
-					<section>
-						<h2>use in MLSVC</h2>
-						<ul>
-							<li>Reference in MLSVC pom.xml file <a href="https://github.roving.com/ES/mlsvc/blob/development/mlsvc-service/pom.xml#L291">https://github.roving.com/ES/MLSVC</a>.<br>
-								<img src="images/pom.png"></li>
-						</ul>
-					</section>
-					<section>
-						<h2>Spring wiring</h2>
-						<ul>
-							<li>Reference in mlsvc-servlet.xml file <a href="https://github.roving.com/ES/mlsvc/blob/development/mlsvc-war/src/main/webapp/WEB-INF/mlsvc-servlet.xml#L153">https://github.roving.com/ES/MLSVC</a>.<br>
-								<img src="images/springwiring.png"></li>
-						</ul>
+						
 					</section>
 					<section>
 						<h2>In code</h2>
 						<ul>
-							<li>Reference in myLibraryFileResourceImpljava file <a href="https://github.roving.com/ES/mlsvc/blob/development/mlsvc-service/src/main/java/com/constantcontact/mlsvc/v1/rs/impl/MyLibraryFileResourceImpl.java#L819">https://github.roving.com/ES/MLSVC</a>.<br>
+							<li>Reference in myLibraryFileResourceImpl.java file <a href="https://github.roving.com/ES/mlsvc/blob/development/mlsvc-service/src/main/java/com/constantcontact/mlsvc/v1/rs/impl/MyLibraryFileResourceImpl.java#L819">https://github.roving.com/ES/MLSVC</a>.<br>
 								<img src="images/statsd1.png"><br><img src="images/statsd2.png"></li>
 						</ul>
+					</section>
+					<section>
+						<h2>In graphite</h2>
+						<img src="images/graphite.png">
 					</section>
 				</section>
 				<section>
 					<h1>DEMO</h1>
-					<a href="https://p2-qagraphite1.ad.prodcc.net/dashboard/#myLibraryNext"> <img src="images/demo.png"></a>
+					<a href="https://p2-graphite1.ad.prodcc.net/dashboard/#myLibraryNext"> <img src="images/demo.png"></a>
 				</section>
 				<section>
-					<h1>Q&A ?</h1>
+					<H1>Big thanks to</H1>
+					<ul>
+						<li>LEN SMITH, for quickly getting the statsd servers ready in all environments.</li>
+						<li>SUSHMA YADUPATHI, for testing the enhancements in MyLibraryNext.</li>
+					</ul>
+					
 					<p>&nbsp;</p>
 					<p>&nbsp;</p>
 					<p align="left">References</p>
 					<ul>
 						<li><a href="https://wiki.roving.com/display/ProdDel/Application+level+monitoring">https://wiki.roving.com/display/ProdDel/Application+level+monitoring</a></li>
 						<li><a href="http://codeascraft.com/2011/02/15/measure-anything-measure-everything/">http://codeascraft.com/2011/02/15/measure-anything-measure-everything/</a></li>
+						<li>link to slides <a href="https://github.roving.com/jkhuraijam/application-monitoring">https://github.roving.com/jkhuraijam/application-monitoring</a></li>
 					</ul>
 				</section>
 
