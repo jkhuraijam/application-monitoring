@@ -147,8 +147,11 @@
 							<li>FEATURE USAGE MERTICS: New features rollout. e.g.Bigstock.</li>
 						</ul>
 					</section>
+				
+				</section>
+
 					<section>
-						<h2>statsd client</h2>
+						<h2>Java statsd client</h2>
 						<ul>
 							<li>JAVA: Created common statsd client module jar under <a href="https://github.roving.com/ES/nodep">https://github.roving.com/ES/nodep</a>.<br>
 								<img src="images/ES_nodep_statsd.png"></li>
@@ -158,17 +161,43 @@
 						
 					</section>
 					<section>
-						<h2>In code</h2>
+						<h2>Pom.xml</h2>
+						<ul>
+							<li>Reference in pom.xml <a href="https://github.roving.com/ES/mlsvc/blob/development/mlsvc-service/pom.xml#L292">https://github.roving.com/ES/MLSVC</a>.<br>
+								<img src="images/pom.png"></li>
+						</ul>
+					</section>
+					<section>
+						<h2>Spring wiring</h2>
+						<ul>
+							<li>Reference in mlsvc-servlet.xml <a href="https://github.roving.com/ES/mlsvc/blob/development/mlsvc-war/src/main/webapp/WEB-INF/mlsvc-servlet.xml#L153">https://github.roving.com/ES/MLSVC</a>.<br>
+								<img src="images/springwiring.png"></li>
+						</ul>
+					</section>
+					<section>
+						<h2>Counter Example</h2>
 						<ul>
 							<li>Reference in myLibraryFileResourceImpl.java file <a href="https://github.roving.com/ES/mlsvc/blob/development/mlsvc-service/src/main/java/com/constantcontact/mlsvc/v1/rs/impl/MyLibraryFileResourceImpl.java#L819">https://github.roving.com/ES/MLSVC</a>.<br>
 								<img src="images/statsd1.png"><br><img src="images/statsd2.png"></li>
 						</ul>
 					</section>
 					<section>
-						<h2>In graphite</h2>
-						<img src="images/graphite.png">
+						<h2>Timer Example </h2>
+						<ul>
+							<li>Using @Timed annotation under nodep <a href="https://github.roving.com/ES/nodep/blob/development/components/statsd/src/test/java/com/constantcontact/common/statsd/BusinessServiceImpl.java">https://github.roving.com/ES/nodep/components/statsd</a><br>
+								<img src="images/timed.png"></li>
+								<li>Spring wiring for AOP
+								<img src="images/spring-aop.png"></li>
+						</ul>
 					</section>
-				</section>
+					<section>
+						<h2>Counter In graphite</h2>
+						<a href="https://c1-graphite1.ad.prodcc.net/"><img src="images/graphite.png"></a>
+					</section>
+					<section>
+						<h2>Timer In graphite</h2>
+						<a href="https://c1-graphite1.ad.prodcc.net/"><img src="images/graphite2.png"></a>
+					</section>
 				<section>
 					<h1>DEMO</h1>
 					<a href="https://p2-graphite1.ad.prodcc.net/dashboard/#myLibraryNext"> <img src="images/demo.png"></a>
